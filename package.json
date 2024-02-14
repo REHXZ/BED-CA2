@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "init_tables": "node src/config/initTables.js && node src/config/createSchema.js",
-    "dev": "nodemon index.js"
+    "dev": "npm install bcrypt jsonwebtoken express mysql2 dotenv multer nodemon && nodemon index.js"
   },
   "keywords": [],
   "author": "Rejey Ezekiel Jeyakumar",
