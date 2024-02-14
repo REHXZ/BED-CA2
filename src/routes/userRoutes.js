@@ -1,0 +1,23 @@
+//////////////////////////////////////////////////////
+// REQUIRE MODULES
+//////////////////////////////////////////////////////
+const express = require('express');
+const userController = require('../controller/userController');
+const jwtcontroller = require('../middlewares/jwtMiddleware')
+//////////////////////////////////////////////////////
+// CREATE ROUTER
+//////////////////////////////////////////////////////
+const router =  express.Router();
+
+//////////////////////////////////////////////////////
+// DEFINE ROUTES
+//////////////////////////////////////////////////////
+router.get('/TotalUser',jwtcontroller.verifyToken, userController.TotalUser)
+router.get('/', userController.readAllUser);
+router.get('/:userId', userController.readUserById);
+router.put('/:id', jwtcontroller.verifyToken, userController.UpdateUserbyId)
+router.delete('/:id', jwtcontroller.verifyToken, userController.deleteUserbyId);
+//////////////////////////////////////////////////////
+// EXPORT ROUTER
+//////////////////////////////////////////////////////
+module.exports = router;
